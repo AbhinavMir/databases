@@ -1,0 +1,6 @@
+logSeq,prevLSN,recordType,transactionID,pageID,length,offset,oldData,newData
+0, NA, NA, NA, NA, NA, NA, NA, NA 
+1,0,xactAction.UPDATE,1,1,1,1,oldData,newData
+2,1,xactAction.UPDATE,1,1,1,1,oldData,newData
+1,0,xactAction.UPDATE,1,1,1,1,oldData,newData
+2,1,xactAction.UPDATE,1,1,1,1,oldData,newData

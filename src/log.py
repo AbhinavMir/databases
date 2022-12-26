@@ -18,6 +18,14 @@ class logFile:
                     with open(logPath, 'w') as f:
                         f.write("logSeq,prevLSN,recordType,transactionID,pageID,length,offset,oldData,newData\n")
                         f.write(f"0, NA, NA, NA, NA, NA, NA, NA, NA " + "\n")
+                        f.close()
+        else:
+            # create log file
+            os.mknod(logPath)
+            with open(logPath, 'w') as f:
+                f.write("logSeq,prevLSN,recordType,transactionID,pageID,length,offset,oldData,newData\n")
+                f.write(f"0, NA, NA, NA, NA, NA, NA, NA, NA " + "\n")
+                f.close()
 
 class Log:
     def __init__(self, LSN, prevLSN, recordType, transactionID, pageID, length, offset, oldData, newData):
@@ -32,6 +40,7 @@ class Log:
         self.newData = newData
         with open(logPath, 'a') as f:
             f.write(f"{self.LSN},{self.prevLSN},{self.recordType},{self.transactionID},{self.pageID},{self.length},{self.offset},{self.oldData},{self.newData}" + "\n")
+            f.close()
 
     def __str__(self):
         return f"{self.LSN},{self.prevLSN},{self.recordType},{self.transactionID},{self.pageID},{self.length},{self.offset},{self.oldData},{self.newData}"+"\n"
@@ -62,3 +71,14 @@ class Main:
     
     def appendLog(LSN, prevLSN, recordType, transactionID, pageID, length, offset, oldData, newData):
         return Log(LSN, prevLSN, recordType, transactionID, pageID, length, offset, oldData, newData)
+
+    def printLog():
+        data = helperFunctions.parseDataFromLog()
+        for i in range(len(data)):
+            print(data[i])
+
+if __name__ == "__main__":
+    Main.initializeLogProcess()
+    Main.appendLog(1, 0, enum.xactAction.UPDATE, 1, 1, 1, 1, "oldData", "newData")
+    Main.appendLog(2, 1, enum.xactAction.UPDATE, 1, 1, 1, 1, "oldData", "newData")
+
