@@ -42,6 +42,7 @@ class Table:
             print("Table does not exist.")
             pass
 
+    
     def insertInto(self, columns, values, tableName):
         tablePath = f"../utils/tables/{tableName}.csv"
         if(len(columns) == len(values)):

@@ -1,11 +1,22 @@
-demoSQL = "SELECT * FROM this";
+selectExample = "SELECT * FROM this";
 
-# break the string into tokens
-def parseToTokens(sql):
-    return sql.split();
+class Parser:
+    @staticmethod
+    def queryToToken(sql):
+        return sql.split();
+    
+    def tokenToCommand(self, table, tokens):
+        if(tokens[0] == "SELECT"):
+            pass
+        elif(tokens[0] == "INSERT"):
+            tableName = tokens[2]
+            columns = tokens[3].split(",")
+            values = tokens[5].split(",")
+            table.insertInto(columns, values, tableName)
+        elif(tokens[0] == "UPDATE"):
+            pass
+        elif(tokens[0] == "DELETE"):
+            pass
 
-print(parseToTokens(demoSQL))
 
-class ruleSet:
-    def insertInto(tableName, columns, values):
-        return f"INSERT INTO {tableName} ({columns}) VALUES ({values})"
+
