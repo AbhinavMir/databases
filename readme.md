@@ -4,11 +4,18 @@
 
 Aim: Walk you through the depth of databases, without overwhelming you.
 
-0. [Overview of databases](./overview.md)
-1. [B+ trees](./b.md)
-2. [Transactions](./transactions.md)
-3. [Concurrency control](./concurrency.md)
-4. [Lock](./locking.md)
-5. [Recovery](./recovery.md)
-6. [Query Evaluations](./eval.md)
-7. [Query optimizations](./opt.md)
+### Todo
+- [ ] Migrate all notes
+- [ ] Implement some level of RAID
+- [ ] Implement B+ indexing
+- [ ] Implement the joins
+- [ ] Instead of brute forcing SQL, implement it using relational algebra
+
+1. [Overview of databases](./notes/overview.md)
+2. [B+ trees](./notes/b.md)
+3. [Transactions](./notes/transactions.md)
+4. [Concurrency control](./notes/concurrency.md)
+5. [Lock](./notes/locking.md)
+6. [Recovery](./notes/recovery.md)
+7. [Query Evaluations](./notes/eval.md)
+8. [Query optimizations](./notes/opt.md)

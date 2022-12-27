@@ -1,4 +1,7 @@
-selectExample = "SELECT * FROM this";
+selectExample = "SELECT * FROM users WHERE name = 'John'"
+insertExample = "INSERT INTO users (name, age) VALUES ('Mackie', 23)"
+updateExample = "UPDATE users SET name = 'Mackie' WHERE name = 'John'"
+deleteExample = "DELETE FROM users WHERE name = 'John'"
 import table as Table
 import catalog as Catalog
 
@@ -8,7 +11,7 @@ class Parser:
         return sql.split();
     
     @staticmethod
-    def tokenToCommand(table, tokens):
+    def tokenToCommand(table, tokens, activeXacts):
         if(tokens[0] == "SELECT"):
             # @TODO: Implement 4 types of JOINs
             pass
@@ -16,7 +19,7 @@ class Parser:
             tableName = tokens[2]
             columns = tokens[3].split(",")
             values = tokens[5].split(",")
-            table.insertInto(columns, values, tableName)
+            activeXacts.addInsert(tableName, columns, values)
         elif(tokens[0] == "UPDATE"):
             pass
         elif(tokens[0] == "DELETE"):
