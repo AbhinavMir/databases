@@ -4,7 +4,7 @@ import os
 catalog = catalog.Catalog()
 
 class Table:
-    def __init__(self, tableId, tableName, columns, isOptional, isKey):
+    def __init__(self, tableId, tableName, columns, types, isOptional, isKey):
         self.rowCounter = 0
         self.records = {}
         self.tableId = tableId
@@ -12,6 +12,7 @@ class Table:
         if(len(columns) == len(isOptional) and len(columns) == len(isKey)):
             print("The number of columns, isOptional, and isKey match.")
             self.columns = columns
+            self.types = types
             self.isOptional = isOptional
             self.isKey = isKey
             # write a new file
@@ -27,7 +28,7 @@ class Table:
                     for i in range(len(columns)):
                         f.write(f"{columns[i]},")
                     f.write("\n")
-                catalog.addToCatalog(tableId, tableName, columns, isOptional, isKey)
+                catalog.addToCatalog(tableId, tableName, columns, isOptional, isKey, types)
     
     def getLatestRowId(self):
         return self.rowCounter
@@ -56,7 +57,6 @@ class Table:
             self.rowCounter += 1
         else:
             raise Exception("The number of columns and values do not match.")
-
 
 Table.dropTable("users")
 table = Table(0, "users", ["name", "age"], [False, False], [True, False])

@@ -13,6 +13,7 @@ class Catalog:
             if line.strip("\n").split(",")[0] == tableId:
                 return line.strip("\n").split(",")
     
+    @staticmethod
     def getCatalogByName(self, tableName):
         with open(catalogPath, 'r') as f:
             lines = f.readlines()
@@ -20,7 +21,7 @@ class Catalog:
             if line.strip("\n").split(",")[1] == tableName:
                 return line.strip("\n").split(",")
 
-    def addToCatalog(self, tableId, tableName, columns, isOptional, isKey):
+    def addToCatalog(self, tableId, tableName, columns, isOptional, isKey, types):
         if(self.getCatalogByName(tableName) == None):
             if(len(columns) == len(isOptional) and len(columns) == len(isKey)):
                 with open(catalogPath, 'a') as f:
@@ -29,6 +30,7 @@ class Catalog:
                     f.write(f"{columns},")
                     f.write(f"{isOptional},")
                     f.write(f"{isKey},")
+                    f.write(f"{types},")
                     f.write("\n")
             else:
                 raise Exception("The number of columns, isOptional, and isKey do not match.")
@@ -42,3 +44,9 @@ class Catalog:
             for line in lines:
                 if line.strip("\n") != tableName:
                     f.write(line)
+
+    @staticmethod
+    def getCatalogCount():
+        with open(catalogPath, 'r') as f:
+            lines = f.readlines()
+        return len(lines)
