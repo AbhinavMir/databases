@@ -61,6 +61,12 @@ class activeXacts:
         # Path: src/activeXacts.py
         pass
 
+    def commit():
+        # remove all transactions from the active transaction list
+        # call functions
+        # Path: src/activeXacts.py
+        pass
+
 class xact:
     def __init__(self, xactId, operation, tableName, rowId, columnName, oldValue, newValue):
         self.xactId = xactId
