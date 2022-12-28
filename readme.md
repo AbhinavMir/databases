@@ -1,6 +1,6 @@
 ## Dosa : Database of Simple Appends
 
-[on hold till end of year] Redoing this in Python - easier to import base level packages (csv, json), very readable and most young devs dabble with python once at the very least.
+[on hold till end of year] Redoing this in Python - easier to import base level packages (csv, json), very readable and most young devs dabble with python once at the very least. I'm also a little tired of working on this, so will come back to it later.
 
 Aim: Walk you through the depth of databases, without overwhelming you.
 
