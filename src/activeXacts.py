@@ -1,4 +1,5 @@
 import os
+import table as Table
 
 activeXactPath = f"../utils/activeXacts.csv"
 class activeXacts:
@@ -33,6 +34,7 @@ class activeXacts:
             # commit the transaction
             if(xact.operation == "INSERT"):
                 # insert into the table
+                Table.insertInto(xact.tableName, xact.columnName, xact.newValue)
 
     def removeXact(commands):
         # Remove a transaction from the active transaction list

@@ -60,5 +60,5 @@ class Table:
 
 Table.dropTable("users")
 table = Table(0, "users", ["name", "age"], [False, False], [True, False])
-#self, tableId, tableName, columns, isOptional, isKey
+# self, tableId, tableName, columns, isOptional, isKey
 table.insertInto(["name", "age"], ["John", 20], "users")
