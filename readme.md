@@ -1,6 +1,8 @@
 ## Dosa : Database of Simple Appends
 
-Redoing this in Python - easier to import base level packages (csv, json), very readable and most young devs dabble with python once at the very least.
+A simple database implementation in Python.
+
+main todo summary: add run instructions (or make it simpler) and include scaffold (interfaces and dummy functions) for you to fill and complete. fix SQL parser.
 
 Aim: Walk you through the depth of databases, without overwhelming you.
 
